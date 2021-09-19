@@ -13,8 +13,5 @@ proc test(num: int, sum: int): int =
     else:
       return test(num + 1, sum)
 
-proc run =
-  let result = test(1, 0)
-  echo "Problem1: ", result
-
-run()
+proc run*(): int =
+  return test(1, 0)
