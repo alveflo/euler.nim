@@ -9,18 +9,18 @@
 # of the even-valued terms.
 proc fib(n: int): int =
   if n == 1 or n == 2:
-    return 1;
+    result = 1
   else:
-    return fib(n-1) + fib(n-2)
+    result = fib(n-1) + fib(n-2)
 
 proc evenFibSum(n: int, sum: int): int =
   let res = fib(n)
   if res %% 2 == 0:
-    return evenFibSum(n + 1, sum + res)
+    result = evenFibSum(n + 1, sum + res)
   elif res > 4000000:
-    return sum
+    result = sum
   else:
-    return evenFibSum(n + 1, sum)
+    result = evenFibSum(n + 1, sum)
 
 proc run*(): int =
-  return evenFibSum(1, 0)
+  result = evenFibSum(1, 0)

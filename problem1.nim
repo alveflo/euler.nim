@@ -6,12 +6,12 @@
 
 proc test(num: int, sum: int): int =
   if num > 999:
-    return sum
+    result = sum
   else:
     if num %% 3 == 0 or num %% 5 == 0:
-      return test(num + 1, sum + num)
+      result = test(num + 1, sum + num)
     else:
-      return test(num + 1, sum)
+      result = test(num + 1, sum)
 
 proc run*(): int =
-  return test(1, 0)
+  result = test(1, 0)
